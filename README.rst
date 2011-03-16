@@ -23,6 +23,8 @@ Configure
 ``VARNISH_WATCHED_MODELS`` is a list of installed models whose absolute_urls you want to purge from your
 Varnish cache upon saving. Example: ``('auth.user','profiles.profile')``
 
+``VARNISH_GLOBAL_WATCHED_MODELS`` is a list of installed models who will purge the entire Varnish cache upon saving. Example: ``('auth.user','profiles.profile')``
+
 ``VARNISH_MANAGEMENT_ADDRS`` is a list of Varnish cache addresses (containing their management ports).
 Example ``('server1:6082','server2:6082')``
 
