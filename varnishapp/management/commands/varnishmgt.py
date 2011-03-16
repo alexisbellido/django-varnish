@@ -8,4 +8,4 @@ class Command(BaseCommand):
         if args:
             pprint(manager.run(*args, secret=getattr(settings, 'VARNISH_SECRET', None)))
         else:
-            print manager.help()
+            print manager.help(secret=getattr(settings, 'VARNISH_SECRET', None))
