@@ -26,6 +26,8 @@ Varnish cache upon saving. Example: ``('auth.user','profiles.profile')``
 ``VARNISH_MANAGEMENT_ADDRS`` is a list of Varnish cache addresses (containing their management ports).
 Example ``('server1:6082','server2:6082')``
 
+``VARNISH_SECRET`` is the shared secret used to authenticate with Varnish server. Example ``'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'``
+
 Management
 -------------
 You can view the status of your Varnish cache servers by going to ``/admin/varnish/`` and being a superuser. `Here is what it looks like in production <http://wiki.github.com/justquick/django-varnish/>`_.
