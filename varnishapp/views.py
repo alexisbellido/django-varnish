@@ -4,7 +4,7 @@ from django.views.generic.simple import direct_to_template
 from django.conf import settings
 
 def get_stats():
-    stats = [x[0] for x in manager.run('stats')]
+    stats = [x[0] for x in manager.run('stats', secret=getattr(settings, 'VARNISH_SECRET', None))]
     return zip(getattr(settings, 'VARNISH_MANAGEMENT_ADDRS', ()), stats)
     
 def management(request): 
@@ -12,6 +12,7 @@ def management(request):
         return HttpResponseRedirect('/admin/')
     if 'command' in request.REQUEST:
         kwargs = dict(request.REQUEST.items())
+        kwargs['secret'] = getattr(settings, 'VARNISH_SECRET', None)
         manager.run(*str(kwargs.pop('command')).split(), **kwargs)
         return HttpResponseRedirect(request.path)
     try:
