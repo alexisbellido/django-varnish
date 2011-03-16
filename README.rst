@@ -14,8 +14,9 @@ You may also go in and manually tweak things (such as your VCL configuration) us
 Setup
 -------
 1. Install the `varnish python bindings <http://github.com/justquick/python-varnish>`_
-2. Put ``varnishapp`` in your ``INSTALLED_APPS`` then set a few more settings.
-3. Add ``(r'^admin/varnish/', include('varnishapp.urls')),`` to your urlconf
+2. Put ``django.contrib.humanize`` in your ``INSTALLED APPS``.
+3. Put ``varnishapp`` in your ``INSTALLED_APPS`` then set a few more settings.
+4. Add ``(r'^admin/varnish/', include('varnishapp.urls')),`` to your urlconf before the other admin URLs.
 
 Configure
 ------------
@@ -27,7 +28,6 @@ Example ``('server1:6082','server2:6082')``
 
 Management
 -------------
-
 You can view the status of your Varnish cache servers by going to ``/admin/varnish/`` and being a superuser. `Here is what it looks like in production <http://wiki.github.com/justquick/django-varnish/>`_.
 
 Run the management command ``varnishmgt`` to blindly execute arguments to all Varnish backends. Example::
